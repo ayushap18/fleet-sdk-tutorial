@@ -18,6 +18,7 @@ export default defineConfig({
       { text: 'Tutorials', link: '/tutorials/01-first-transaction' },
       { text: 'Examples', link: '/examples/' },
       { text: 'Playground', link: '/playground/' },
+      { text: 'Guides', link: '/guides/' },
       { text: 'Testing', link: '/testing/' },
       {
         text: 'Resources',
@@ -92,6 +93,16 @@ export default defineConfig({
           text: '🎮 Playground',
           items: [
             { text: 'Live Playground', link: '/playground/' },
+          ]
+        }
+      ],
+      '/guides/': [
+        {
+          text: '📚 Guides',
+          items: [
+            { text: 'Overview', link: '/guides/' },
+            { text: 'Testnet Integration', link: '/guides/testnet-integration' },
+            { text: 'XP & Achievements', link: '/guides/leaderboard' },
           ]
         }
       ],

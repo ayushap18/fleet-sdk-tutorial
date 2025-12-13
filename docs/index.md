@@ -6,7 +6,7 @@ titleTemplate: Master Ergo Development
 hero:
   name: "Fleet SDK"
   text: "Educational Tutorial"
-  tagline: Master Ergo blockchain development with hands-on examples
+  tagline: Master Ergo blockchain development with hands-on examples and interactive playground
   image:
     src: /logo.svg
     alt: Fleet SDK
@@ -14,6 +14,9 @@ hero:
     - theme: brand
       text: Get Started →
       link: /tutorials/01-first-transaction
+    - theme: alt
+      text: Try Playground
+      link: /playground/
     - theme: alt
       text: View Examples
       link: /examples/
@@ -25,6 +28,15 @@ features:
   - icon: 💻
     title: Working Examples
     details: Real, tested code examples you can run immediately and learn from.
+  - icon: 🎮
+    title: Interactive Playground
+    details: Write and execute Fleet SDK code directly in your browser. No setup required!
+  - icon: 🌐
+    title: Testnet Integration
+    details: Connect to Ergo testnet for real blockchain interactions and testing.
+  - icon: 🏆
+    title: XP & Achievements
+    details: Track your progress with gamified learning. Earn XP and unlock achievements!
   - icon: 🎓
     title: Beginner Friendly
     details: No prior blockchain experience needed. We start from the basics.
@@ -34,9 +46,6 @@ features:
   - icon: 🔐
     title: Secure by Design
     details: Learn best practices for handling keys, signing, and security.
-  - icon: 🌐
-    title: Production Ready
-    details: Skills and patterns that transfer directly to real-world dApps.
 ---
 
 <style>
@@ -65,6 +74,44 @@ Master ErgoScript and smart contract interactions.
 
 [Start Contract Path →](/tutorials/04-smart-contracts)
 
+### 🎮 Path 4: Interactive Playground
+Try Fleet SDK code directly in your browser!
+
+[Open Playground →](/playground/)
+
+</div>
+
+## 🚀 New Features
+
+<div class="features-grid">
+
+### 🎮 Interactive Playground
+Write and execute Fleet SDK code directly in your browser. Perfect for experimenting without any local setup!
+
+- **Live Code Editor** - Monaco-powered with syntax highlighting
+- **Instant Execution** - Run code with one click
+- **Pre-built Examples** - Start with working templates
+
+[Try Playground →](/playground/)
+
+### 🌐 Testnet Integration  
+Connect to the real Ergo testnet for authentic blockchain interactions.
+
+- **Fetch Real UTXOs** - Query actual blockchain data
+- **Submit Transactions** - Test your dApps on testnet
+- **Explorer Integration** - Full API access to Ergo Explorer
+
+[Learn More →](/guides/testnet-integration)
+
+### 🏆 XP & Achievements System
+Gamified learning to keep you motivated!
+
+- **Earn XP** - Gain points for completing tutorials
+- **Unlock Achievements** - 8 unique badges to collect
+- **Track Progress** - View your learning journey
+
+[View Leaderboard →](/guides/leaderboard)
+
 </div>
 
 ## 📊 What You'll Learn
@@ -88,9 +135,30 @@ graph LR
 | Metric | Value |
 |--------|-------|
 | 📚 Tutorials | 4 comprehensive guides |
-| 💻 Examples | 8 working code samples |
+| 💻 Examples | 9 working code samples |
+| 🧪 Tests | 86 passing test cases |
+| 🎮 Playground | Interactive code editor |
+| 🏅 Achievements | 8 badges to unlock |
 | ⏱️ Total Time | ~3 hours to complete |
-| 🎯 Difficulty | Beginner to Advanced |
+
+## 🛠️ Quick Commands
+
+```bash
+# Start the documentation server
+npm run docs:dev
+
+# Run all tests
+npm test
+
+# Open interactive playground
+npm run playground
+
+# Check your XP progress
+npm run progress
+
+# View achievements
+npm run achievements
+```
 
 ---
 
@@ -98,6 +166,6 @@ graph LR
 
 **Ready to start your journey?**
 
-[Begin Tutorial →](/tutorials/01-first-transaction)
+[Begin Tutorial →](/tutorials/01-first-transaction) | [Try Playground →](/playground/) | [View Progress →](/guides/leaderboard)
 
 </div>
