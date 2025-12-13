@@ -434,7 +434,7 @@ Ready for more? Continue to:
 
 - [Fleet SDK Core Documentation](https://fleet-sdk.github.io/docs/)
 - [Ergo UTXO Model Explained](https://docs.ergoplatform.com/dev/protocol/eutxo/)
-- [TransactionBuilder API Reference](/api/transaction-builder)
+- [TransactionBuilder API Reference](https://fleet-sdk.github.io/docs/classes/TransactionBuilder.html)
 
 ---
 
