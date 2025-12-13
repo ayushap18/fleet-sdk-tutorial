@@ -52,7 +52,7 @@ export class ErgoExplorerClient {
    */
   async getCurrentHeight(): Promise<number> {
     const response = await fetch(`${this.baseUrl}/networkState`);
-    const data = await response.json();
+    const data = await response.json() as { height: number };
     return data.height;
   }
 
@@ -63,7 +63,7 @@ export class ErgoExplorerClient {
     const response = await fetch(
       `${this.baseUrl}/boxes/unspent/byAddress/${address}?limit=${limit}`
     );
-    const data = await response.json();
+    const data = await response.json() as { items: any[] };
     return data.items.map(this.mapExplorerBox);
   }
 
@@ -77,7 +77,7 @@ export class ErgoExplorerClient {
     const response = await fetch(
       `${this.baseUrl}/addresses/${address}/balance/total`
     );
-    const data = await response.json();
+    const data = await response.json() as { nanoErgs: string; tokens: any[] };
     
     return {
       nanoErg: BigInt(data.nanoErgs),
