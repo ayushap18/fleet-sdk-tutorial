@@ -19,6 +19,7 @@ export default defineConfig({
       { text: 'Examples', link: '/examples/' },
       { text: 'Playground', link: '/playground/' },
       { text: 'Guides', link: '/guides/' },
+      { text: 'Architecture', link: '/architecture/' },
       { text: 'Testing', link: '/testing/' },
       {
         text: 'Resources',
@@ -103,6 +104,14 @@ export default defineConfig({
             { text: 'Overview', link: '/guides/' },
             { text: 'Testnet Integration', link: '/guides/testnet-integration' },
             { text: 'XP & Achievements', link: '/guides/leaderboard' },
+          ]
+        }
+      ],
+      '/architecture/': [
+        {
+          text: '🏗️ Architecture',
+          items: [
+            { text: 'System Overview', link: '/architecture/' },
           ]
         }
       ],
