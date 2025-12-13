@@ -1,424 +1,221 @@
-# 🎮 Fleet SDK Arena
+# 🎮 Fleet SDK Playground
 
-> Level up your blockchain skills through interactive challenges!
+> Interactive examples to learn Fleet SDK
 
-<div class="hero-banner">
+<script setup>
+import { ref } from 'vue'
 
-## ⚔️ Welcome, Developer!
+const selected = ref('output')
+const output = ref('// Click ▶ Run to execute')
+const xp = ref(0)
 
-Your journey to becoming an **Ergo Master** begins here.
+const ex = {
+  output: {
+    name: '📦 Output',
+    code: `// OutputBuilder Example
+const address = "9gNvAv97...";
+const amount = 1000000000n;
 
-**Current Rank:** 🥉 Novice Developer  
-**Total XP:** 0 / 2000  
-**Quests Completed:** 0 / 8
+const output = {
+  value: amount,
+  address: address,
+  assets: []
+};
 
-</div>
+console.log("✅ Output created!");`,
+    out: `✅ Output created!
+Value: 1000000000n nanoERG
+Address: 9gNvAv97...
 
----
++10 XP 🎮`
+  },
+  tx: {
+    name: '🔄 Transaction',
+    code: `// TransactionBuilder Example
+const tx = {
+  inputs: [inputBox],
+  outputs: [
+    { value: "1 ERG", to: recipient },
+    { value: "3.99 ERG", to: sender }
+  ],
+  fee: "0.0011 ERG"
+};
 
-## 🗺️ Quest Map
+console.log("✅ Tx built!");`,
+    out: `✅ Transaction built!
+Inputs: 1
+Outputs: 2
+Fee: 0.0011 ERG
 
-```
-    🏰 MASTER CITADEL (2000 XP)
-         ╱╲
-        ╱  ╲
-    ⚔️ ARENA ⚔️
-      ╱      ╲
-     ╱        ╲
-🔴 LEGENDS    🔴 LEGENDS
-(Oracle/DeFi)   (500 XP)
-     ╲        ╱
-      ╲      ╱
-🟠 CHAMPIONS   🟠 CHAMPIONS
-(Contracts)     (300 XP)
-     ╲        ╱
-      ╲      ╱
-   🟡 WARRIORS 🟡
-   (Tokens/NFTs)
-     (200 XP)
-         │
-   🟢 APPRENTICE 🟢
-   (Basic Txs)
-     (100 XP)
-         │
-    🚪 START HERE
-```
++20 XP 🎮`
+  },
+  token: {
+    name: '🪙 Token',
+    code: `// Token Transfer Example
+const output = {
+  value: "0.001 ERG",
+  address: recipient,
+  tokens: [{
+    id: "03faf2cb...",
+    amount: 100
+  }]
+};
 
----
+console.log("✅ Token output!");`,
+    out: `✅ Token output created!
+Token: 03faf2cb...
+Amount: 100 tokens
 
-## 🎯 Choose Your Quest
++15 XP 🎮`
+  },
+  nft: {
+    name: '🖼️ NFT',
+    code: `// NFT Minting (EIP-4)
+const nft = {
+  amount: 1,
+  name: "My NFT",
+  desc: "Unique artwork",
+  type: "image/png",
+  url: "ipfs://Qm..."
+};
 
-### 🟢 TIER 1: Apprentice Quests (100 XP each)
+console.log("✅ NFT ready!");`,
+    out: `✅ NFT ready to mint!
+Name: My NFT
+Description: Unique artwork
+Type: image/png
 
-<div class="quest-card tier-1">
++25 XP 🎮`
+  },
+  box: {
+    name: '📦 Box',
+    code: `// Ergo Box (UTXO)
+const box = {
+  id: "e56847ed...",
+  value: "1.5 ERG",
+  tokens: 1,
+  registers: { R4: "data" },
+  height: 1199500
+};
 
-#### ⚔️ Quest 1: First Blood 🩸
-> Build your first transaction and send ERG
+console.log("📦 Box info:");`,
+    out: `📦 Box Structure:
+ID: e56847ed...
+Value: 1.5 ERG
+Tokens: 1
+Registers: 1
 
-**Objective:** Create a valid unsigned transaction  
-**Reward:** 100 XP + "Transaction Initiate" Badge  
-**Time Limit:** ⏱️ 10 minutes
-
-```typescript
-// YOUR MISSION: Complete this code
-import { TransactionBuilder, OutputBuilder } from "@fleet-sdk/core";
-
-const tx = new TransactionBuilder(/* ??? */)
-  .from(/* ??? */)
-  .to(/* ??? */)
-  .sendChangeTo(/* ??? */)
-  .build();
-
-// Expected: tx.outputs.length >= 2
-```
-
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-00ff00?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-1)
-
-</div>
-
-<div class="quest-card tier-1">
-
-#### ⚔️ Quest 2: Multi-Strike ⚔️⚔️
-> Send ERG to 3 recipients in one transaction
-
-**Objective:** Create multi-output transaction  
-**Reward:** 100 XP + "Batch Master" Badge  
-**Bonus:** +50 XP if done in under 5 min
-
-```typescript
-// YOUR MISSION: Send to multiple addresses
-const recipients = [
-  { address: "9f...", amount: 1_000_000_000n },
-  { address: "9h...", amount: 2_000_000_000n },
-  { address: "9g...", amount: 500_000_000n },
-];
-
-// Create outputs for ALL recipients
-// HINT: Use .map() and multiple .to() calls
-```
-
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-00ff00?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-2)
-
-</div>
-
----
-
-### 🟡 TIER 2: Warrior Quests (200 XP each)
-
-<div class="quest-card tier-2">
-
-#### 🪙 Quest 3: Token Slayer
-> Transfer native Ergo tokens
-
-**Objective:** Move 100 tokens to another address  
-**Reward:** 200 XP + "Token Handler" Badge  
-**Secret Challenge:** Include 2 different token types (+100 XP)
-
-```typescript
-// YOUR MISSION: Transfer tokens
-const tokenOutput = new OutputBuilder(SAFE_MIN_BOX_VALUE, recipient)
-  .addTokens({
-    tokenId: "???",  // Find a valid token ID
-    amount: 100n
-  });
-
-// HINT: Tokens need ERG as a "carrier"
-```
-
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-ffcc00?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-3)
-
-</div>
-
-<div class="quest-card tier-2">
-
-#### 🎨 Quest 4: The Minting
-> Create your first NFT
-
-**Objective:** Mint an EIP-4 compliant NFT  
-**Reward:** 200 XP + "NFT Creator" Badge  
-**Achievement Unlock:** "Digital Artist"
-
-```typescript
-// YOUR MISSION: Mint an NFT with metadata
-const nft = new OutputBuilder(SAFE_MIN_BOX_VALUE, address)
-  .mintToken({ amount: 1n, name: "My Quest NFT" })
-  .setAdditionalRegisters({
-    R4: /* Name */,
-    R5: /* Description */,
-    R6: /* Decimals (0 for NFT) */,
-    R7: /* Type bytes */,
-    R8: /* Content link */,
-  });
-```
-
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-ffcc00?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-4)
-
-</div>
-
----
-
-### 🟠 TIER 3: Champion Quests (300 XP each)
-
-<div class="quest-card tier-3">
-
-#### 📜 Quest 5: Contract Conjurer
-> Compile and deploy an ErgoScript contract
-
-**Objective:** Create a time-locked box  
-**Reward:** 300 XP + "Script Mage" Badge  
-**Boss Challenge:** Make it spendable only after block 2,000,000
-
-```scala
-// YOUR MISSION: Write this ErgoScript
-{
-  // Only spendable after block 2,000,000
-  // AND by the owner's public key
-  
-  sigmaProp(???)
++20 XP 🎮`
+  }
 }
-```
 
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-ff8800?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-5)
-
-</div>
-
-<div class="quest-card tier-3">
-
-#### 🔐 Quest 6: The Vault
-> Build a 2-of-3 multi-signature wallet
-
-**Objective:** Create a team treasury  
-**Reward:** 300 XP + "Vault Keeper" Badge  
-**Team Bonus:** +100 XP if you test with mock keys
-
-```scala
-{
-  val alice = PK("9fAAA...")
-  val bob = PK("9fBBB...")  
-  val charlie = PK("9fCCC...")
-  
-  // YOUR MISSION: Require 2 of 3 signatures
-  sigmaProp(atLeast(???, Coll(???)))
+function run() {
+  output.value = ex[selected.value].out
+  const m = ex[selected.value].out.match(/\+(\d+)/)
+  if (m) xp.value += parseInt(m[1])
 }
-```
 
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-ff8800?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-6)
-
-</div>
-
----
-
-### 🔴 TIER 4: Legend Quests (500 XP each)
-
-<div class="quest-card tier-4">
-
-#### 🔮 Quest 7: Oracle Whisperer
-> Read live price data from on-chain oracles
-
-**Objective:** Fetch ERG/USD price from oracle pool  
-**Reward:** 500 XP + "Oracle Reader" Badge  
-**Elite Challenge:** Build a price-triggered transaction
-
-```typescript
-// YOUR MISSION: Decode oracle data
-const oracleBox = await fetchOracleBox();
-const priceData = oracleBox.additionalRegisters.R4;
-
-// Decode the price (it's encoded as a Long)
-const price = ???;
-
-console.log(`ERG/USD: $${price}`);
-```
-
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-ff0000?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-7)
-
-</div>
-
-<div class="quest-card tier-4">
-
-#### 🐉 Quest 8: DeFi Dragon
-> Execute a token swap on an AMM DEX
-
-**Objective:** Swap ERG for tokens using constant product  
-**Reward:** 500 XP + "DeFi Warrior" Badge  
-**Legendary:** Calculate slippage correctly (+200 XP)
-
-```typescript
-// YOUR MISSION: Implement the swap formula
-function calculateOutput(
-  inputAmount: bigint,
-  inputReserve: bigint,
-  outputReserve: bigint,
-  feePercent: bigint
-): bigint {
-  // x * y = k (constant product)
-  // Account for trading fee
-  
-  return ???;
+function pick(k) {
+  selected.value = k
+  output.value = '// Click ▶ Run to execute'
 }
-```
+</script>
 
-[![Start Quest](https://img.shields.io/badge/▶️_START_QUEST-ff0000?style=for-the-badge)](https://stackblitz.com/edit/fleet-quest-8)
-
+<div class="pg">
+  <div class="tabs">
+    <button v-for="(e, k) in ex" :key="k" :class="{act: selected===k}" @click="pick(k)">{{e.name}}</button>
+  </div>
+  <div class="grid">
+    <div class="box">
+      <div class="hdr"><span>📝 Code</span><button class="run" @click="run">▶ Run</button></div>
+      <pre class="code">{{ex[selected].code}}</pre>
+    </div>
+    <div class="box">
+      <div class="hdr"><span>📤 Output</span><span class="xp">🏆 {{xp}} XP</span></div>
+      <pre class="out">{{output}}</pre>
+    </div>
+  </div>
 </div>
 
----
+<style scoped>
+.pg { margin: 24px 0; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tabs button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 14px;
+}
+.tabs button:hover { border-color: #10b981; color: #10b981; }
+.tabs button.act { background: #10b981; color: white; border-color: #10b981; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+.box { border: 1px solid #e5e5e5; border-radius: 8px; overflow: hidden; }
+.hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: 600;
+}
+.run {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.run:hover { background: #059669; }
+.xp {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.code, .out {
+  margin: 0;
+  padding: 16px;
+  font-family: 'Fira Code', 'Monaco', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 220px;
+  max-height: 280px;
+  overflow: auto;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  white-space: pre;
+}
+.out { color: #4ade80; }
 
-## 🏆 Leaderboard
-
-| Rank | Player | XP | Badges | Title |
-|:----:|--------|---:|:------:|-------|
-| 🥇 | `0x1337...` | 2,450 | 🏅🏅🏅🏅🏅 | **Ergo Legend** |
-| 🥈 | `0xDEAD...` | 1,800 | 🏅🏅🏅🏅 | **Chain Master** |
-| 🥉 | `0xBEEF...` | 1,200 | 🏅🏅🏅 | **Smart Contract Pro** |
-| 4 | `0xCAFE...` | 900 | 🏅🏅 | **Token Warrior** |
-| 5 | `YOU` | 0 | - | **Novice** |
-
----
-
-## 🎖️ Achievement Badges
-
-### Unlockable Badges
-
-| Badge | Name | Requirement |
-|:-----:|------|-------------|
-| 🟢 | **First Steps** | Complete Quest 1 |
-| 🔵 | **Batch Master** | Send to 5+ recipients |
-| 🟡 | **Token Handler** | Transfer any token |
-| 🟠 | **NFT Creator** | Mint your first NFT |
-| 🔴 | **Script Mage** | Deploy a contract |
-| 🟣 | **Vault Keeper** | Create multi-sig |
-| ⚪ | **Oracle Reader** | Fetch oracle data |
-| 🐉 | **DeFi Dragon** | Execute DEX swap |
-
-### Secret Achievements 🔒
-
-| Badge | Name | Hint |
-|:-----:|------|------|
-| 🌟 | **???** | Complete all T1 in 1 hour |
-| ⚡ | **???** | No errors on first try |
-| 💎 | **???** | Find the easter egg |
-| 👑 | **???** | 100% test coverage |
-
----
-
-## 🎮 Live Battle Arena
-
-### ⚡ Speed Round Challenges
-
-Race against the clock!
-
-<div class="battle-card">
-
-#### ⚡ Round 1 (30 seconds)
-
-**What's the minimum box value?**
-
-```typescript
-import { SAFE_MIN_BOX_VALUE } from "@fleet-sdk/core";
-console.log(SAFE_MIN_BOX_VALUE); // ???
-```
-
-<details>
-<summary>🔓 Reveal Answer</summary>
-
-```typescript
-// Answer: 1_000_000n (0.001 ERG)
-```
-+10 XP ✅
-
-</details>
-
-</div>
-
-<div class="battle-card">
-
-#### ⚡ Round 2 (60 seconds)
-
-**Fix this broken transaction:**
-
-```typescript
-const tx = new TransactionBuilder(1_000_000)
-  .from(inputs)
-  .to(new OutputBuilder(100n, address))  // ❌ BUG
-  .sendChangeTo(changeAddress)
-  .build();
-```
-
-<details>
-<summary>🔓 Reveal Answer</summary>
-
-```typescript
-// BUG: 100n < SAFE_MIN_BOX_VALUE
-.to(new OutputBuilder(SAFE_MIN_BOX_VALUE, address))
-```
-+20 XP ✅
-
-</details>
-
-</div>
-
-<div class="battle-card">
-
-#### ⚡ Round 3 (90 seconds)
-
-**Write ErgoScript: "anyone can spend after block 1.5M"**
-
-<details>
-<summary>🔓 Reveal Answer</summary>
-
-```scala
-{ sigmaProp(HEIGHT > 1500000L) }
-```
-+30 XP ✅
-
-</details>
-
-</div>
+:root.dark .tabs button { background: #374151; border-color: #4b5563; color: #d1d5db; }
+:root.dark .tabs button.act { background: #10b981; color: white; }
+:root.dark .box { border-color: #374151; }
+:root.dark .hdr { background: #1f2937; border-color: #374151; color: #f3f4f6; }
+</style>
 
 ---
 
-## 🎯 Daily Challenges
-
-| Day | Challenge | Bonus XP |
-|-----|-----------|----------|
-| MON | Transaction Speed Run | +50 |
-| TUE | Token Collector | +75 |
-| WED | Contract Deploy | +100 |
-| THU | Multi-Sig Mystery | +100 |
-| FRI | DeFi Duel | +150 |
-| SAT | Free Build | +200 |
-| SUN | Boss Battle | +500 |
-
----
-
-## 🚀 Quick Start
+## 🚀 Run Locally
 
 ```bash
-# Clone the arena
-git clone https://github.com/fleet-sdk/fleet-sdk-tutorial.git
+git clone https://github.com/ayushap18/fleet-sdk-tutorial.git
 cd fleet-sdk-tutorial
-
-# Install weapons
-pnpm install
-
-# Enter the arena!
-pnpm quest:start
-
-# Battle!
-pnpm test
+npm install
+npm test  # 86 tests
 ```
 
----
+## 📚 Learn More
 
-<div class="cta-box">
-
-## 🎮 Ready Player One?
-
-[![Enter Arena](https://img.shields.io/badge/🎮_ENTER_ARENA-blueviolet?style=for-the-badge)](https://stackblitz.com/github/fleet-sdk/fleet-sdk-tutorial)
-
-[![Run Tests](https://img.shields.io/badge/⚔️_BATTLE-success?style=for-the-badge)](https://github.com/fleet-sdk/fleet-sdk-tutorial)
-
-[![Leaderboard](https://img.shields.io/badge/🏆_RANKS-gold?style=for-the-badge)](https://github.com/fleet-sdk/fleet-sdk-tutorial/discussions)
-
-</div>
+| Link | Description |
+|------|-------------|
+| [First Transaction](/tutorials/01-first-transaction) | Step-by-step tutorial |
+| [Cheat Sheet](/guides/cheatsheet) | Quick reference |
+| [Examples](/examples/) | More code examples |
