@@ -1,25 +1,63 @@
 # 🎮 Fleet SDK Educational Tutorial
 
+<div align="center">
+
 [![Tests](https://img.shields.io/badge/tests-86%20passing-brightgreen)](./tests)
+[![Docs](https://img.shields.io/badge/docs-VitePress-41b883)](./docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Fleet SDK](https://img.shields.io/badge/Fleet%20SDK-v0.6.4-blue)](https://github.com/fleet-sdk/fleet)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
+[![Ergo](https://img.shields.io/badge/Ergo-Platform-orange)](https://ergoplatform.org)
 
-> **🏆 Unstoppable Hackathon 2025 Submission**  
-> **Bounty:** Fleet SDK Quest - Educational Tutorial (Σ1,578)  
-> **Track:** Open Contribution
+**🏆 Unstoppable Hackathon 2025 Submission**
+
+[📚 Documentation](https://ayushap18.github.io/fleet-sdk-tutorial) · [🎮 Try Playground](#-interactive-playground) · [🧪 Run Tests](#-test-suite)
+
+</div>
+
+---
 
 ```
-    ⚔️ FLEET SDK QUEST ⚔️
-      ╔═══════════════╗
-      ║  Level Up Your ║
-      ║  Ergo Skills!  ║
-      ╚═══════════════╝
-         /█\  🎮
-        █████  
-       ███████ 
-         |||   
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║     ███████╗██╗     ███████╗███████╗████████╗    ███████╗██████╗ ██╗  ██╗   ║
+║     ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝    ██╔════╝██╔══██╗██║ ██╔╝   ║
+║     █████╗  ██║     █████╗  █████╗     ██║       ███████╗██║  ██║█████╔╝    ║
+║     ██╔══╝  ██║     ██╔══╝  ██╔══╝     ██║       ╚════██║██║  ██║██╔═██╗    ║
+║     ██║     ███████╗███████╗███████╗   ██║       ███████║██████╔╝██║  ██╗   ║
+║     ╚═╝     ╚══════╝╚══════╝╚══════╝   ╚═╝       ╚══════╝╚═════╝ ╚═╝  ╚═╝   ║
+║                                                                              ║
+║                     ⚔️  QUEST - Level Up Your Ergo Skills  🎮               ║
+║                                                                              ║
+║                        Bounty: Σ1,578 ERG | Track: Open                     ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
 ```
+
+<div align="center">
+
+### 🎬 Demo Video
+
+[![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
+*Click to see the tutorial in action!*
+
+</div>
+
+---
+
+## 🌟 Why This Tutorial?
+
+| Feature | Benefit |
+|---------|---------|
+| **86 Passing Tests** | Learn from verified, working code |
+| **Gamified Learning** | Earn XP, unlock achievements as you progress |
+| **Real Patterns** | Code sourced from official Fleet SDK repos |
+| **Interactive Playground** | Try code in your browser without setup |
+| **Testnet Integration** | Test with real blockchain (free faucet ERG) |
+| **Complete Coverage** | All bounty milestones (1-11) implemented |
+
+---
 
 ## 📖 Overview
 
@@ -102,6 +140,36 @@ npm run quest:start
 | [Oracle Data](./examples/07-oracle-data-fetch.ts) | Real-world data | `npm run example:oracle` |
 | [DeFi Swap](./examples/08-defi-swap.ts) | Token swapping | `npm run example:defi` |
 | [Advanced Patterns](./examples/advanced-patterns.ts) | Production patterns | - |
+
+---
+
+---
+
+## 🎮 Interactive Playground
+
+Try Fleet SDK directly in your browser—no setup required!
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🎮 FLEET SDK PLAYGROUND                                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐     │
+│   │   Send ERG   │    │ Mint Tokens  │    │    NFTs      │     │
+│   │      ▶️      │    │      ▶️      │    │      ▶️      │     │
+│   └──────────────┘    └──────────────┘    └──────────────┘     │
+│                                                                 │
+│   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐     │
+│   │  Contracts   │    │   Oracles    │    │   TimeLock   │     │
+│   │      ▶️      │    │      ▶️      │    │      ▶️      │     │
+│   └──────────────┘    └──────────────┘    └──────────────┘     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Try it:** `npm run docs:dev` → Navigate to `/playground`
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/ayushap18/fleet-sdk-tutorial)
 
 ---
 
@@ -237,6 +305,28 @@ Contributions welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md).
 ## 📄 License
 
 [MIT License](./LICENSE) - Free to use for learning and building!
+
+---
+
+---
+
+## 📋 Bounty Milestones
+
+All **11 milestones** from the bounty specification are complete:
+
+| # | Milestone | Status | Files |
+|---|-----------|--------|-------|
+| 1 | Send Transaction | ✅ | `tutorials/01-first-transaction.md` |
+| 2 | Mint Tokens | ✅ | `tutorials/02-token-operations.md` |
+| 3 | Burn Tokens | ✅ | `tutorials/02-token-operations.md` |
+| 4 | Box Retrieval | ✅ | `concepts/utxo-model.md` |
+| 5 | Contract Transaction | ✅ | `tutorials/04-smart-contracts.md` |
+| 6 | Signing with Secret | ✅ | `concepts/contract-signing.md` |
+| 7 | Registers | ✅ | `concepts/registers.md` |
+| 8 | Data Inputs | ✅ | `concepts/data-inputs.md` |
+| 9 | Compile Constants | ✅ | `concepts/compile-time-constants.md` |
+| 10 | ReducedTx/ErgoPay | ✅ | `concepts/reduced-tx-ergopay.md` |
+| 11 | Single-Interaction TX | ✅ | `examples/timelock.md` |
 
 ---
 

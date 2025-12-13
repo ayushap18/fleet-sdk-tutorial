@@ -84,6 +84,7 @@ export default defineConfig({
             { text: 'Multi-Sig Wallet', link: '/examples/multi-sig' },
             { text: 'Oracle Data', link: '/examples/oracle-data' },
             { text: 'DeFi Swap', link: '/examples/defi-swap' },
+            { text: '🔒 Time-Lock', link: '/examples/timelock' },
           ]
         }
       ],
@@ -110,6 +111,7 @@ export default defineConfig({
             { text: 'Overview', link: '/guides/' },
             { text: 'Testnet Integration', link: '/guides/testnet-integration' },
             { text: 'XP & Achievements', link: '/guides/leaderboard' },
+            { text: '📋 Cheat Sheet', link: '/guides/cheatsheet' },
           ]
         }
       ],
