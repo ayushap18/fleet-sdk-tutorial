@@ -51,6 +51,9 @@ export default defineConfig({
             { text: 'UTXO Model', link: '/concepts/utxo-model' },
             { text: 'Box Structure', link: '/concepts/box-structure' },
             { text: 'ErgoScript Basics', link: '/concepts/ergoscript' },
+            { text: 'Data Inputs', link: '/concepts/data-inputs' },
+            { text: 'Compile Time Constants', link: '/concepts/compile-time-constants' },
+            { text: 'Reduced Tx & ErgoPay', link: '/concepts/reduced-tx-ergopay' },
           ]
         }
       ],
@@ -62,6 +65,9 @@ export default defineConfig({
             { text: 'UTXO Model', link: '/concepts/utxo-model' },
             { text: 'Box Structure', link: '/concepts/box-structure' },
             { text: 'ErgoScript Basics', link: '/concepts/ergoscript' },
+            { text: 'Data Inputs', link: '/concepts/data-inputs' },
+            { text: 'Compile Time Constants', link: '/concepts/compile-time-constants' },
+            { text: 'Reduced Tx & ErgoPay', link: '/concepts/reduced-tx-ergopay' },
           ]
         }
       ],
