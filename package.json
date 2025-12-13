@@ -1,0 +1,78 @@
+{
+  "name": "fleet-sdk-tutorial",
+  "version": "1.0.0",
+  "description": "🎮 Fleet SDK Educational Tutorial - Unstoppable Hackathon 2025",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "example:basic": "tsx examples/01-basic-transfer.ts",
+    "example:multi": "tsx examples/02-multi-output-tx.ts",
+    "example:token": "tsx examples/03-token-transfer.ts",
+    "example:nft": "tsx examples/04-nft-minting.ts",
+    "example:contract": "tsx examples/05-contract-interaction.ts",
+    "example:multisig": "tsx examples/06-multi-sig-wallet.ts",
+    "example:oracle": "tsx examples/07-oracle-data-fetch.ts",
+    "example:defi": "tsx examples/08-defi-swap.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "playground": "open docs/playground/index.html",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "quest:start": "tsx src/quest-runner.ts",
+    "quest:score": "tsx src/quest-runner.ts --score",
+    "quest:leaderboard": "tsx src/leaderboard.ts --leaderboard",
+    "progress": "tsx src/leaderboard.ts",
+    "achievements": "tsx src/leaderboard.ts --achievements",
+    "testnet": "tsx src/testnet-integration.ts",
+    "lint": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "@fleet-sdk/core": "^0.6.4",
+    "@fleet-sdk/wallet": "^0.6.4",
+    "@fleet-sdk/common": "^0.6.4",
+    "@fleet-sdk/crypto": "^0.6.4",
+    "@fleet-sdk/serializer": "^0.6.4",
+    "@fleet-sdk/mock-chain": "^0.6.4",
+    "@fleet-sdk/compiler": "^0.6.4",
+    "@fleet-sdk/blockchain-providers": "^0.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "vitepress": "^1.0.0",
+    "vitest": "^1.1.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0"
+  },
+  "keywords": [
+    "ergo",
+    "blockchain",
+    "fleet-sdk",
+    "tutorial",
+    "typescript",
+    "cryptocurrency",
+    "unstoppable-hackathon",
+    "educational",
+    "defi",
+    "smart-contracts"
+  ],
+  "author": "Fleet SDK Tutorial Team",
+  "license": "MIT",
+  "homepage": "https://github.com/YOUR-USERNAME/fleet-sdk-tutorial#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR-USERNAME/fleet-sdk-tutorial/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR-USERNAME/fleet-sdk-tutorial.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

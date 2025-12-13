@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet SDK Playground 🎮</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #eee;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: rgba(0, 217, 255, 0.1);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+    }
+
+    .header h1 {
+      color: #00d9ff;
+      font-size: 2em;
+    }
+
+    .header p {
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .panel {
+      background: #16213e;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 217, 255, 0.2);
+    }
+
+    .panel-header {
+      background: rgba(0, 217, 255, 0.1);
+      padding: 12px 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .editor {
+      width: 100%;
+      height: 400px;
+      background: #0f0f23;
+      color: #00ff88;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 14px;
+      padding: 15px;
+      border: none;
+      resize: none;
+      outline: none;
+    }
+
+    .output {
+      width: 100%;
+      height: 400px;
+      background: #0a0a1a;
+      color: #fff;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 13px;
+      padding: 15px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    .output .success { color: #00ff88; }
+    .output .error { color: #ff4444; }
+    .output .info { color: #00d9ff; }
+
+    .btn {
+      background: #00d9ff;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #00b8d9;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #00d9ff;
+      border: 1px solid #00d9ff;
+    }
+
+    .examples {
+      padding: 20px;
+      background: #0f0f23;
+    }
+
+    .example-btn {
+      background: rgba(0, 217, 255, 0.1);
+      color: #00d9ff;
+      border: 1px solid rgba(0, 217, 255, 0.3);
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+
+    .example-btn:hover {
+      background: rgba(0, 217, 255, 0.2);
+    }
+
+    .status-bar {
+      background: #0a0a1a;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .xp-badge {
+      background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+      color: #000;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>⚔️ Fleet SDK Playground</h1>
+    <p>Write, test, and learn Fleet SDK interactively</p>
+  </div>
+
+  <div class="examples">
+    <strong style="color: #888;">Quick Examples:</strong>
+    <button class="example-btn" onclick="loadExample('output')">OutputBuilder</button>
+    <button class="example-btn" onclick="loadExample('transaction')">TransactionBuilder</button>
+    <button class="example-btn" onclick="loadExample('token')">Token Transfer</button>
+    <button class="example-btn" onclick="loadExample('nft')">Mint NFT</button>
+    <button class="example-btn" onclick="loadExample('address')">Address Validation</button>
+    <button class="example-btn" onclick="loadExample('box')">Box Structure</button>
+  </div>
+
+  <div class="container">
+    <div class="panel">
+      <div class="panel-header">
+        <span>📝 Code Editor</span>
+        <div>
+          <button class="btn btn-secondary" onclick="clearEditor()">Clear</button>
+          <button class="btn" onclick="runCode()">▶ Run Code</button>
+        </div>
+      </div>
+      <textarea id="editor" class="editor" spellcheck="false">// Welcome to Fleet SDK Playground! 🎮
+// 
+// This is a simulated environment to learn Fleet SDK.
+// Try the examples above or write your own code!
+
+// Example: Create an output
+const recipientAddress = "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j";
+const amount = 1000000000n; // 1 ERG in nanoErg
+
+console.log("Creating output...");
+console.log("Recipient:", recipientAddress);
+console.log("Amount:", amount / 1000000000n, "ERG");
+
+// Simulate OutputBuilder
+const output = {
+  value: amount,
+  address: recipientAddress,
+  assets: [],
+  registers: {}
+};
+
+console.log("\n✅ Output created successfully!");
+console.log(JSON.stringify(output, null, 2));</textarea>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span>📤 Output</span>
+        <button class="btn btn-secondary" onclick="clearOutput()">Clear</button>
+      </div>
+      <div id="output" class="output">
+        <span class="info">// Click "Run Code" to execute your code</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <span>Fleet SDK v0.6.4 | Playground Mode (Simulated)</span>
+    <span class="xp-badge">🏆 XP: 0</span>
+  </div>
+
+  <script>
+    let totalXP = 0;
+
+    const examples = {
+      output: `// 📦 OutputBuilder Example
+// Create an output to send ERG to an address
+
+const recipientAddress = "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j";
+const SAFE_MIN_BOX_VALUE = 1000000n; // 0.001 ERG
+
+// Simulate OutputBuilder
+const output = {
+  value: SAFE_MIN_BOX_VALUE,
+  address: recipientAddress,
+  assets: [],
+  additionalRegisters: {}
+};
+
+console.log("✅ OutputBuilder created!");
+console.log("Value:", output.value, "nanoERG");
+console.log("Address:", output.address);
+console.log("\\n+10 XP earned!");`,
+
+      transaction: `// 🔄 TransactionBuilder Example
+// Build a complete transaction
+
+const height = 1200000;
+const senderAddress = "9f4QF8AD1nQ3nJahQVkMj8hFSVVzVom77b52JU7EW71Zexg6N8v";
+const recipientAddress = "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j";
+
+// Mock input box
+const inputBox = {
+  boxId: "abc123...",
+  value: 5000000000n, // 5 ERG
+  ergoTree: "0008cd...",
+  creationHeight: 1199000
+};
+
+// Build transaction
+const transaction = {
+  inputs: [inputBox],
+  outputs: [
+    { value: 1000000000n, address: recipientAddress }, // 1 ERG to recipient
+    { value: 3998900000n, address: senderAddress }     // Change
+  ],
+  fee: 1100000n
+};
+
+console.log("✅ Transaction built!");
+console.log("Inputs:", transaction.inputs.length);
+console.log("Outputs:", transaction.outputs.length);
+console.log("Fee:", transaction.fee, "nanoERG");
+console.log("\\n+20 XP earned!");`,
+
+      token: `// 🪙 Token Transfer Example
+// Send tokens along with ERG
+
+const tokenId = "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04";
+const tokenName = "SigUSD";
+
+// Output with tokens
+const output = {
+  value: 1000000n, // Min ERG to carry tokens
+  address: "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j",
+  assets: [
+    {
+      tokenId: tokenId,
+      amount: 100n // 100 tokens
+    }
+  ]
+};
+
+console.log("✅ Token output created!");
+console.log("Token:", tokenName);
+console.log("Token ID:", tokenId.slice(0, 20) + "...");
+console.log("Amount:", output.assets[0].amount);
+console.log("\\n+15 XP earned!");`,
+
+      nft: `// 🖼️ NFT Minting Example
+// Mint an NFT with EIP-4 metadata
+
+const nftOutput = {
+  value: 1000000n,
+  address: "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j",
+  assets: [
+    {
+      tokenId: "FIRST_INPUT_BOX_ID", // Will be set to first input's boxId
+      amount: 1n // NFT = exactly 1
+    }
+  ],
+  registers: {
+    R4: "My Awesome NFT",           // Name
+    R5: "A unique digital artwork", // Description
+    R6: 0,                          // Decimals (0 for NFT)
+    R7: "image/png",                // Content type
+    R8: "ipfs://Qm..."              // Asset URL
+  }
+};
+
+console.log("✅ NFT ready to mint!");
+console.log("Name:", nftOutput.registers.R4);
+console.log("Description:", nftOutput.registers.R5);
+console.log("Amount:", nftOutput.assets[0].amount, "(NFT)");
+console.log("\\n+25 XP earned!");`,
+
+      address: `// 🔐 Address Validation Example
+// Validate Ergo addresses
+
+function isValidErgoAddress(address) {
+  // Basic validation rules:
+  // 1. Mainnet addresses start with '9'
+  // 2. Testnet addresses start with '3'
+  // 3. Length is typically 51-55 characters
+  
+  if (!address || typeof address !== 'string') {
+    return { valid: false, reason: "Address must be a string" };
+  }
+  
+  if (address.length < 40 || address.length > 60) {
+    return { valid: false, reason: "Invalid address length" };
+  }
+  
+  if (address.startsWith('9')) {
+    return { valid: true, network: "mainnet" };
+  }
+  
+  if (address.startsWith('3')) {
+    return { valid: true, network: "testnet" };
+  }
+  
+  return { valid: false, reason: "Invalid prefix" };
+}
+
+// Test addresses
+const addresses = [
+  "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j",
+  "3WwbYP5VrgD...",
+  "invalid"
+];
+
+addresses.forEach(addr => {
+  const result = isValidErgoAddress(addr);
+  console.log(addr.slice(0, 20) + "...");
+  console.log("  Valid:", result.valid);
+  console.log("  " + (result.network || result.reason) + "\\n");
+});
+
+console.log("+15 XP earned!");`,
+
+      box: `// 📦 Ergo Box Structure
+// Understanding the anatomy of a box (UTXO)
+
+const exampleBox = {
+  // Unique identifier (32 bytes hex)
+  boxId: "e56847ed19b3dc6b72828fcfb992fdf7310828cf291221269b7ffc72fd66706e",
+  
+  // Value in nanoERG (1 ERG = 1,000,000,000 nanoERG)
+  value: 1500000000n, // 1.5 ERG
+  
+  // The contract protecting this box (serialized ErgoTree)
+  ergoTree: "0008cd03a621f820dbed198b42a2dca799a571911f2dabbd2e4d441c9aad558da63f084d",
+  
+  // Block height when this box was created
+  creationHeight: 1199500,
+  
+  // Tokens held in this box
+  assets: [
+    { tokenId: "03faf2cb...", amount: 500n } // 500 SigUSD
+  ],
+  
+  // Custom data in registers R4-R9
+  additionalRegisters: {
+    R4: "0e0b48656c6c6f", // "Hello" encoded
+    R5: "04c801"          // Integer 100
+  },
+  
+  // Reference to creating transaction
+  transactionId: "9148408c04c2e38a6402a7950d6157730fa7d49e9ab3b9cadec481d7769918e9",
+  index: 0
+};
+
+console.log("📦 Box Structure:");
+console.log("================");
+console.log("ID:", exampleBox.boxId.slice(0, 20) + "...");
+console.log("Value:", Number(exampleBox.value) / 1e9, "ERG");
+console.log("Height:", exampleBox.creationHeight);
+console.log("Tokens:", exampleBox.assets.length);
+console.log("Registers:", Object.keys(exampleBox.additionalRegisters).length);
+console.log("\\n+20 XP earned!");`
+    };
+
+    function loadExample(name) {
+      document.getElementById('editor').value = examples[name];
+      clearOutput();
+    }
+
+    function clearEditor() {
+      document.getElementById('editor').value = '';
+    }
+
+    function clearOutput() {
+      document.getElementById('output').innerHTML = '<span class="info">// Click "Run Code" to execute your code</span>';
+    }
+
+    function runCode() {
+      const code = document.getElementById('editor').value;
+      const outputEl = document.getElementById('output');
+      
+      // Capture console.log
+      const logs = [];
+      const originalLog = console.log;
+      console.log = (...args) => {
+        logs.push(args.map(a => 
+          typeof a === 'object' ? JSON.stringify(a, (k, v) => 
+            typeof v === 'bigint' ? v.toString() + 'n' : v, 2) : a
+        ).join(' '));
+      };
+
+      try {
+        // Execute the code
+        eval(code);
+        
+        // Check for XP
+        const xpMatch = logs.join('').match(/\+(\d+) XP/);
+        if (xpMatch) {
+          totalXP += parseInt(xpMatch[1]);
+          document.querySelector('.xp-badge').textContent = '🏆 XP: ' + totalXP;
+        }
+        
+        outputEl.innerHTML = logs.map(log => 
+          `<span class="success">${escapeHtml(log)}</span>`
+        ).join('\n');
+        
+      } catch (error) {
+        outputEl.innerHTML = `<span class="error">❌ Error: ${escapeHtml(error.message)}</span>`;
+      }
+
+      // Restore console.log
+      console.log = originalLog;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
