@@ -3,9 +3,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Fleet SDK Tutorial',
   description: 'Master Ergo blockchain development with Fleet SDK',
+  base: '/fleet-sdk-tutorial/',
   
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/fleet-sdk-tutorial/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ],
 
