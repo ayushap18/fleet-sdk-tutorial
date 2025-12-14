@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Tests](https://img.shields.io/badge/tests-86%20passing-brightgreen)](./tests)
-[![Docs](https://img.shields.io/badge/docs-VitePress-41b883)](./docs)
+[![Docs](https://img.shields.io/badge/docs-VitePress-41b883)](https://ayushap18.github.io/fleet-sdk-tutorial/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Fleet SDK](https://img.shields.io/badge/Fleet%20SDK-v0.6.4-blue)](https://github.com/fleet-sdk/fleet)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
@@ -63,6 +63,11 @@
 | Problem & Solution | ✅ | [Problem Statement](#-problem-statement) |
 | Presentation Deck | ✅ | [View Presentation](https://ayushap18.github.io/fleet-sdk-tutorial/presentation.html) |
 | Demo Video (720p+) | 📹 | [YouTube](https://youtu.be/845y-U8Kbj8) |
+
+### 🌐 Live Links
+
+- Main site: https://ayushap18.github.io/fleet-sdk-tutorial/
+- Presentation: https://ayushap18.github.io/fleet-sdk-tutorial/presentation.html
 
 ---
 
