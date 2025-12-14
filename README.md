@@ -38,7 +38,7 @@
 
 ### 🎬 Demo Video
 
-[![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/845y-U8Kbj8)
 
 > **📹 Recording Checklist (720p+ required):**
 > - [ ] Show `npm test` running all 86 tests
@@ -62,7 +62,7 @@
 | Architecture Overview | ✅ | [Architecture](#%EF%B8%8F-architecture-overview) |
 | Problem & Solution | ✅ | [Problem Statement](#-problem-statement) |
 | Presentation Deck | ✅ | [View Presentation](https://ayushap18.github.io/fleet-sdk-tutorial/presentation.html) |
-| Demo Video (720p+) | 📹 | [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) |
+| Demo Video (720p+) | 📹 | [YouTube](https://youtu.be/845y-U8Kbj8) |
 
 ---
 
