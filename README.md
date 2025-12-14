@@ -40,13 +40,102 @@
 
 [![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
+> **📹 Recording Checklist (720p+ required):**
+> - [ ] Show `npm test` running all 86 tests
+> - [ ] Navigate VitePress docs site
+> - [ ] Run example: `npm run example:basic`
+> - [ ] Show interactive playground
+> - [ ] Highlight gamification (XP system)
+
 *Click to see the tutorial in action!*
 
 </div>
 
 ---
 
-## 🌟 Why This Tutorial?
+## 📊 Submission Materials
+
+| Requirement | Status | Link |
+|-------------|--------|------|
+| GitHub Repository | ✅ | [ayushap18/fleet-sdk-tutorial](https://github.com/ayushap18/fleet-sdk-tutorial) |
+| README + Setup | ✅ | [Quick Start](#-quick-start) |
+| Architecture Overview | ✅ | [Architecture](#%EF%B8%8F-architecture-overview) |
+| Problem & Solution | ✅ | [Problem Statement](#-problem-statement) |
+| Presentation Deck | ✅ | [View Presentation](https://ayushap18.github.io/fleet-sdk-tutorial/presentation.html) |
+| Demo Video (720p+) | 📹 | [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) |
+
+---
+
+## � Problem Statement
+
+### The Challenge
+The Ergo blockchain ecosystem lacks **beginner-friendly, comprehensive educational resources** for developers wanting to build dApps using the Fleet SDK. Existing documentation is:
+- Scattered across multiple repositories
+- Lacks hands-on, runnable examples
+- Missing progressive learning paths
+- No gamification to keep learners engaged
+
+### Our Solution
+**Fleet SDK Quest** is a complete, gamified educational tutorial that transforms learning Fleet SDK from frustrating to fun:
+
+| Problem | Our Solution |
+|---------|--------------|
+| Fragmented docs | **All-in-one** tutorial with 4 progressive guides |
+| No working examples | **86 passing tests** + 9 runnable examples |
+| Steep learning curve | **Gamified XP system** with skill tree progression |
+| No practice environment | **Interactive playground** for hands-on learning |
+| Outdated patterns | **Real code** from official Fleet SDK repositories |
+
+---
+
+## 🏗️ Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         FLEET SDK QUEST ARCHITECTURE                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐       │
+│  │   VitePress     │     │    Test Suite   │     │    Examples     │       │
+│  │   Docs Site     │     │   (86 tests)    │     │   (9 files)     │       │
+│  │  - Tutorials    │     │  - Vitest       │     │  - TypeScript   │       │
+│  │  - Concepts     │     │  - MockChain    │     │  - Runnable     │       │
+│  │  - Playground   │     │  - Real vectors │     │  - Documented   │       │
+│  └────────┬────────┘     └────────┬────────┘     └────────┬────────┘       │
+│           │                       │                       │                 │
+│           └───────────────────────┼───────────────────────┘                 │
+│                                   │                                         │
+│                          ┌────────▼────────┐                                │
+│                          │   Fleet SDK     │                                │
+│                          │   v0.6.4        │                                │
+│                          │  ─────────────  │                                │
+│                          │  @fleet-sdk/core│                                │
+│                          │  @fleet-sdk/wallet                               │
+│                          │  @fleet-sdk/mock-chain                           │
+│                          │  @fleet-sdk/compiler                             │
+│                          └────────┬────────┘                                │
+│                                   │                                         │
+│                          ┌────────▼────────┐                                │
+│                          │  Ergo Blockchain│                                │
+│                          │  (Testnet/Main) │                                │
+│                          └─────────────────┘                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Tech Stack
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Documentation** | VitePress 1.6.4 | Interactive docs with Vue components |
+| **Testing** | Vitest + MockChain | Fast, isolated blockchain testing |
+| **Language** | TypeScript 5.3 | Type-safe development |
+| **SDK** | Fleet SDK 0.6.4 | All 8 packages integrated |
+| **CI/CD** | GitHub Actions | Automated testing & deployment |
+
+---
+
+## �🌟 Why This Tutorial?
 
 | Feature | Benefit |
 |---------|---------|
@@ -85,7 +174,7 @@ A **comprehensive, gamified educational tutorial** for learning the [Fleet SDK](
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR-USERNAME/fleet-sdk-tutorial.git
+git clone https://github.com/ayushap18/fleet-sdk-tutorial.git
 cd fleet-sdk-tutorial
 
 # Install dependencies

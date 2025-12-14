@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet SDK Quest - Unstoppable Hackathon 2025</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.min.css">
+  <style>
+    :root {
+      --r-background-color: #0a0a0f;
+      --r-main-color: #e0e0e0;
+      --r-heading-color: #00d4aa;
+      --r-link-color: #00d4aa;
+    }
+    .reveal h1, .reveal h2, .reveal h3 { color: #00d4aa; text-transform: none; }
+    .reveal { font-size: 32px; }
+    .reveal pre { font-size: 0.65em; }
+    .reveal code { background: #1a1a2e; padding: 2px 8px; border-radius: 4px; }
+    .highlight { color: #ffd700; font-weight: bold; }
+    .ergo-orange { color: #ff6b35; }
+    .stat-box { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 20px; border-radius: 10px; margin: 10px; display: inline-block; }
+    .stat-number { font-size: 2.5em; color: #00d4aa; font-weight: bold; }
+    .emoji-large { font-size: 1.5em; }
+    table { margin: 0 auto; border-collapse: collapse; }
+    th, td { padding: 12px 20px; border: 1px solid #333; }
+    th { background: #16213e; color: #00d4aa; }
+    .team-info { background: #16213e; padding: 15px; border-radius: 10px; margin-top: 20px; }
+    .problem-box { background: #2d1f1f; border-left: 4px solid #ff6b35; padding: 15px; margin: 10px 0; text-align: left; }
+    .solution-box { background: #1f2d1f; border-left: 4px solid #00d4aa; padding: 15px; margin: 10px 0; text-align: left; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title Slide -->
+      <section data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f3460 100%)">
+        <h1>🎮 Fleet SDK Quest</h1>
+        <h3>Gamified Educational Tutorial for Ergo Developers</h3>
+        <p style="margin-top: 40px;">
+          <span class="ergo-orange">Unstoppable Hackathon 2025</span><br>
+          <small>Bounty: Σ1,578 ERG | Track: Open</small>
+        </p>
+        <div class="team-info">
+          <p><strong>Team:</strong> Ayush Patel</p>
+          <p><small>LNMIIT, Jaipur</small></p>
+        </div>
+      </section>
+
+      <!-- Problem Statement -->
+      <section>
+        <h2>🎯 The Problem</h2>
+        <div class="problem-box">
+          <h4 style="color: #ff6b35;">Ergo developers face a steep learning curve</h4>
+          <ul>
+            <li>📚 Documentation is <strong>scattered</strong> across repositories</li>
+            <li>❌ No <strong>working examples</strong> to learn from</li>
+            <li>📈 <strong>Steep learning curve</strong> discourages beginners</li>
+            <li>🎮 No <strong>gamification</strong> to keep learners engaged</li>
+            <li>🔧 Outdated patterns and broken code samples</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Solution -->
+      <section>
+        <h2>💡 Our Solution</h2>
+        <div class="solution-box">
+          <h4 style="color: #00d4aa;">Fleet SDK Quest - Learn by Doing</h4>
+          <p>A <strong>complete, gamified educational tutorial</strong> that transforms learning Fleet SDK from frustrating to <span class="highlight">fun</span>!</p>
+        </div>
+        <br>
+        <table>
+          <tr><th>Problem</th><th>Solution</th></tr>
+          <tr><td>Fragmented docs</td><td>✅ All-in-one tutorial</td></tr>
+          <tr><td>No examples</td><td>✅ 86 passing tests + 9 examples</td></tr>
+          <tr><td>Steep curve</td><td>✅ Gamified XP system</td></tr>
+          <tr><td>No practice</td><td>✅ Interactive playground</td></tr>
+        </table>
+      </section>
+
+      <!-- Key Stats -->
+      <section>
+        <h2>📊 By The Numbers</h2>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+          <div class="stat-box">
+            <div class="stat-number">86</div>
+            <div>Passing Tests</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">9</div>
+            <div>Working Examples</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">4</div>
+            <div>Tutorial Tracks</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">11</div>
+            <div>Bounty Milestones</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture -->
+      <section>
+        <h2>🏗️ Architecture</h2>
+        <pre style="font-size: 0.5em; text-align: left;">
+┌────────────────────────────────────────────────────────────┐
+│                  FLEET SDK QUEST                           │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │  VitePress   │  │  Test Suite  │  │   Examples   │     │
+│  │  Docs Site   │  │  (Vitest)    │  │  (TypeScript)│     │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘     │
+│         └─────────────────┼─────────────────┘             │
+│                           │                               │
+│                   ┌───────▼───────┐                       │
+│                   │  Fleet SDK    │                       │
+│                   │   v0.6.4      │                       │
+│                   │ ───────────── │                       │
+│                   │ core, wallet  │                       │
+│                   │ mock-chain    │                       │
+│                   │ compiler      │                       │
+│                   └───────┬───────┘                       │
+│                           │                               │
+│                   ┌───────▼───────┐                       │
+│                   │     Ergo      │                       │
+│                   │  Blockchain   │                       │
+│                   └───────────────┘                       │
+└────────────────────────────────────────────────────────────┘
+        </pre>
+      </section>
+
+      <!-- Tech Stack -->
+      <section>
+        <h2>🛠️ Tech Stack</h2>
+        <table>
+          <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+          <tr><td>Docs</td><td>VitePress 1.6.4</td><td>Interactive Vue docs</td></tr>
+          <tr><td>Testing</td><td>Vitest + MockChain</td><td>Fast blockchain tests</td></tr>
+          <tr><td>Language</td><td>TypeScript 5.3</td><td>Type-safe code</td></tr>
+          <tr><td>SDK</td><td>Fleet SDK 0.6.4</td><td>All 8 packages</td></tr>
+          <tr><td>CI/CD</td><td>GitHub Actions</td><td>Auto test & deploy</td></tr>
+        </table>
+      </section>
+
+      <!-- Bounty Milestones -->
+      <section>
+        <h2>✅ Bounty Milestones (11/11)</h2>
+        <table style="font-size: 0.7em;">
+          <tr><th>#</th><th>Milestone</th><th>Status</th></tr>
+          <tr><td>1</td><td>Transaction Outputs</td><td>✅</td></tr>
+          <tr><td>2</td><td>Box Selection</td><td>✅</td></tr>
+          <tr><td>3</td><td>Token Minting</td><td>✅</td></tr>
+          <tr><td>4</td><td>NFT Minting</td><td>✅</td></tr>
+          <tr><td>5</td><td>Smart Contracts</td><td>✅</td></tr>
+          <tr><td>6</td><td>Registers (R4-R9)</td><td>✅</td></tr>
+          <tr><td>7</td><td>Contract Signing</td><td>✅</td></tr>
+          <tr><td>8</td><td>Data Inputs</td><td>✅</td></tr>
+          <tr><td>9</td><td>Compile Constants</td><td>✅</td></tr>
+          <tr><td>10</td><td>ErgoPay Integration</td><td>✅</td></tr>
+          <tr><td>11</td><td>Wallet Connection</td><td>✅</td></tr>
+        </table>
+      </section>
+
+      <!-- Features -->
+      <section>
+        <h2>✨ Key Features</h2>
+        <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+          <p><span class="emoji-large">🎮</span> <strong>Gamified Learning</strong> - Earn XP as you progress</p>
+          <p><span class="emoji-large">📚</span> <strong>4 Tutorial Tracks</strong> - Basics → Smart Contracts</p>
+          <p><span class="emoji-large">💻</span> <strong>Interactive Playground</strong> - Try code in browser</p>
+          <p><span class="emoji-large">🧪</span> <strong>86 Tests</strong> - All verified & working</p>
+          <p><span class="emoji-large">📖</span> <strong>VitePress Docs</strong> - Beautiful, searchable</p>
+          <p><span class="emoji-large">🔗</span> <strong>Real Patterns</strong> - From official Fleet SDK</p>
+        </div>
+      </section>
+
+      <!-- Demo Preview -->
+      <section>
+        <h2>🎬 Live Demo</h2>
+        <div style="text-align: left;">
+          <p>▶️ <strong>Test Suite:</strong> <code>npm test</code> (86 passing)</p>
+          <p>▶️ <strong>Docs Site:</strong> <code>npm run docs:dev</code></p>
+          <p>▶️ <strong>Example:</strong> <code>npm run example:basic</code></p>
+          <p>▶️ <strong>Playground:</strong> Interactive code editor</p>
+        </div>
+        <br>
+        <pre><code>
+# Quick Start
+git clone https://github.com/ayushap18/fleet-sdk-tutorial
+cd fleet-sdk-tutorial
+npm install
+npm test
+        </code></pre>
+      </section>
+
+      <!-- Code Example -->
+      <section>
+        <h2>💻 Code Sample</h2>
+        <pre><code class="language-typescript">
+import { OutputBuilder, TransactionBuilder } from "@fleet-sdk/core";
+
+// Create a simple ERG transfer
+const output = new OutputBuilder(
+  "1000000000", // 1 ERG in nanoERG
+  recipientAddress
+);
+
+const tx = new TransactionBuilder(currentHeight)
+  .from(inputs)
+  .to(output)
+  .sendChangeTo(senderAddress)
+  .payMinFee()
+  .build();
+        </code></pre>
+      </section>
+
+      <!-- Impact -->
+      <section>
+        <h2>🌍 Impact</h2>
+        <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+          <div class="solution-box">
+            <h4>For Developers</h4>
+            <ul>
+              <li>Learn Fleet SDK in hours, not weeks</li>
+              <li>Copy-paste working code patterns</li>
+              <li>Test locally before deploying</li>
+            </ul>
+          </div>
+          <div class="solution-box">
+            <h4>For Ergo Ecosystem</h4>
+            <ul>
+              <li>Lower barrier to entry</li>
+              <li>More dApp developers</li>
+              <li>Growing developer community</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Future Roadmap -->
+      <section>
+        <h2>🚀 Future Roadmap</h2>
+        <table>
+          <tr><th>Phase</th><th>Feature</th></tr>
+          <tr><td>v1.1</td><td>Video tutorials for each guide</td></tr>
+          <tr><td>v1.2</td><td>DeFi integration examples</td></tr>
+          <tr><td>v1.3</td><td>Multi-language support</td></tr>
+          <tr><td>v2.0</td><td>AI-powered code assistant</td></tr>
+        </table>
+      </section>
+
+      <!-- Links -->
+      <section>
+        <h2>🔗 Links</h2>
+        <table>
+          <tr><th>Resource</th><th>URL</th></tr>
+          <tr><td>GitHub</td><td><a href="https://github.com/ayushap18/fleet-sdk-tutorial">ayushap18/fleet-sdk-tutorial</a></td></tr>
+          <tr><td>Live Docs</td><td><a href="https://ayushap18.github.io/fleet-sdk-tutorial">GitHub Pages</a></td></tr>
+          <tr><td>Demo Video</td><td><a href="#">YouTube Link</a></td></tr>
+        </table>
+        <br>
+        <p><strong>Ergo Wallet:</strong></p>
+        <code style="font-size: 0.6em;">9gKJBgaEiZzvg5xddsS3BXH6jG5VfJ2k2GiWk6GfemwbKY1X7QC</code>
+      </section>
+
+      <!-- Thank You -->
+      <section data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #16213e 50%, #0f3460 100%)">
+        <h1>🙏 Thank You!</h1>
+        <h3>Questions?</h3>
+        <br>
+        <p>
+          <span class="highlight">Fleet SDK Quest</span><br>
+          <small>Making Ergo Development Accessible</small>
+        </p>
+        <br>
+        <div class="team-info">
+          <p>Ayush Patel | LNMIIT, Jaipur</p>
+          <p><small>GitHub: @ayushap18</small></p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      backgroundTransition: 'fade'
+    });
+  </script>
+</body>
+</html>
